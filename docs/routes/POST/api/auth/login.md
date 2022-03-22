@@ -1,4 +1,4 @@
-# GET /api/auth/login
+# POST /api/auth/login
 
 Authenticates a user using provided login credentials, then creates a session and generates an access token.
 
