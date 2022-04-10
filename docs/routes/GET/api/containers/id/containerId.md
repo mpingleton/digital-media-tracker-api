@@ -1,6 +1,6 @@
-# GET /api/media/id/:mediaId
+# GET /api/containers/id/:containerId
 
-Get information for a single piece of media, given the media ID.
+Get information for a single piece of container, given the container ID.
 
 ## Access Requirements
 
@@ -19,7 +19,7 @@ Get information for a single piece of media, given the media ID.
 
 |Param|Type|Value Description|
 |-|-|-|
-|mediaId|Integer|Unique identifier of the requested piece of media.|
+|containerId|Integer|Unique identifier of the requested container.|
 
 ### Query
 
@@ -37,13 +37,9 @@ The request has been processed sucessfully.  The response body will contain a st
 
 |Key|Type|Value Description|
 |-|-|-|
-|id|Integer|Unique identifier of the media.|
-|containerId|Integer|Unique identifier of the container where this media is stored.|
-|controlNumber|String|Control number of the media.|
-|title|String|Media title.|
-|type|String|Describes the media's type. (i.e.: "CD", "DVD", "FLASH_DRIVE")|
-|classification|String|Media classification.|
-|status|String|Media's lifecycle status.|
+|id|Integer|Unique identifier for the requested container.|
+|facilityId|Integer|Unique identifier for the facility in which this container is located.|
+|description|String|Description of the container.|
 
 ### 400 Bad Request
 
@@ -75,4 +71,4 @@ The following types of errors are possible with this response:
 
 ### 404 Not Found
 
-The requested media could not be found.  The response body will be blank.
+The requested container could not be found.  The reponse body will be blank.
