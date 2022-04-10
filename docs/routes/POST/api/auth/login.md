@@ -1,6 +1,6 @@
 # POST /api/auth/login
 
-Authenticates a user using provided login credentials, then creates a session and generates an access token.
+Given a set of login credentials, authenticates a user and creates a session with a JWT access token.
 
 ## Access Requirements
 
@@ -28,8 +28,8 @@ The request body should be a stringified JSON object, which should contain the f
 
 |Key|Type|Value Description|Optional|
 |-|-|-|-|
-|username|String|Username of the requested user.|No|
-|passphrase|String|Passphrase used to authenticate the user.|No|
+|username|String|Username identifying the user account the client wants to log into.|No|
+|passphrase|String|Passphrase used to authenticate the client.|No|
 
 ## Responses
 
@@ -39,7 +39,7 @@ The request has been processed sucessfully.  The response body will contain a st
 
 |Key|Type|Value Description|
 |-|-|-|
-|accessToken|String|The JWT access token which was generated after successful authentication.  This is the access token that the client will present for each subsequent request during the session.|
+|accessToken|String|Newly created JWT access token.  This token will be used to access other routes.|
 
 ### 400 Bad Request
 
@@ -67,5 +67,5 @@ The following types of errors are possible with this response:
 
 |Error Type|Description|
 |-|-|
-|USER_NOT_FOUND|The user account matching the given username was not found.|
-|INCORRECT_PASSPHRASE|The passphrase that was supplied by the client was incorrect.|
+|USER_NOT_FOUND|The account for the given username does not exist.|
+|INCORRECT_PASSPHRASE|The passphrase given by the client is incorrect.|

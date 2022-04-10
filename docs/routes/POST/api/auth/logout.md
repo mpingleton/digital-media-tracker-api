@@ -1,6 +1,6 @@
 # POST /api/auth/logout
 
-Invalidate the current session for the authenticated user.
+Terminate the current session for a client.
 
 ## Access Requirements
 
@@ -13,6 +13,7 @@ Invalidate the current session for the authenticated user.
 |Header|Type|Value Description|Optional|
 |-|-|-|-|
 |Authorization|String|JWT access token.|No|
+|Content-Type|String|"application/json"|No|
 
 ### Params
 
@@ -30,7 +31,21 @@ N/A
 
 ### 200 OK
 
-The request has been processed sucessfully.  The response body will be blank.
+The request has been processed sucessfully.  The response body will be empty.
+
+### 400 Bad Request
+
+The request could not be processed.  The response body will contain a stringified JSON object with the following key-value pairs:
+
+|Key|Type|Value Description|
+|-|-|-|
+|errorType|String|The string identifier which specifies the type of error that occured.|
+
+The following types of errors are possible with this response:
+
+|Error Type|Description|
+|-|-|
+|INPUT_VALIDATION_FAILED|The request provided by the client failed the input validation.|
 
 ### 401 Unauthorized
 
