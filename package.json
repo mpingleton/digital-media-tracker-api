@@ -1,0 +1,29 @@
+{
+  "name": "digital-media-tracker-api",
+  "version": "0.0.0",
+  "description": "API for the Digital Media Tracker web application.",
+  "main": "src/index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mpingleton/digital-media-tracker-api.git"
+  },
+  "author": "Michael Pingleton",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mpingleton/digital-media-tracker-api/issues"
+  },
+  "homepage": "https://github.com/mpingleton/digital-media-tracker-api#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "pg": "^8.7.3",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.18.0"
+  }
+}
