@@ -1,6 +1,6 @@
 # METHOD /api/facilities/id/:facilityId
 
-Get information for a specific container.
+Get information for a specific facility.
 
 ## Access Requirements
 
