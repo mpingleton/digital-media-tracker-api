@@ -13,7 +13,6 @@ Returns profile information for the currently authenticated user.
 |Header|Type|Value Description|Optional|
 |-|-|-|-|
 |Authorization|String|JWT access token.|No|
-|Content-Type|String|"application/json"|No|
 
 ### Params
 

@@ -13,7 +13,6 @@ Get a list of media stored inside all of the containers inside of the specified 
 |Header|Type|Value Description|Optional|
 |-|-|-|-|
 |Authorization|String|JWT access token.|No|
-|Content-Type|String|"application/json"|No|
 
 ### Params
 

@@ -13,7 +13,6 @@ Get information for a specific facility.
 |Header|Type|Value Description|Optional|
 |-|-|-|-|
 |Authorization|String|JWT access token.|No|
-|Content-Type|String|"application/json"|No|
 
 ### Params
 

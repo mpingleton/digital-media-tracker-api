@@ -13,7 +13,6 @@ Get information for a single piece of media, given the media ID.
 |Header|Type|Value Description|Optional|
 |-|-|-|-|
 |Authorization|String|JWT access token.|No|
-|Content-Type|String|"application/json"|No|
 
 ### Params
 
