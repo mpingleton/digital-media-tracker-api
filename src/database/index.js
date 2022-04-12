@@ -11,6 +11,7 @@ const Container = require('./models/Container');
 const Facility = require('./models/Facility');
 const Base = require('./models/Base');
 const UserToFacilityAssignment = require('./models/UserToFacilityAssignment');
+const MediaTransfer = require('./models/MediaTransfer');
 
 const sequelize = new Sequelize(process.env.DATABASE_URL);
 const models = {};
@@ -25,6 +26,7 @@ const initDatabase = async () => {
     models.Facility = Facility(sequelize);
     models.Base = Base(sequelize);
     models.UserToFacilityAssignment = UserToFacilityAssignment(sequelize);
+    models.MediaTransfer = MediaTransfer(sequelize);
 };
 
 const closeDatabase = async () => {
