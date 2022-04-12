@@ -6,6 +6,10 @@ const { Sequelize } = require('sequelize');
 
 const User = require('./models/User');
 const Session = require('./models/Session');
+const Media = require('./models/Media');
+const Container = require('./models/Container');
+const Facility = require('./models/Facility');
+const Base = require('./models/Base');
 
 const sequelize = new Sequelize(process.env.DATABASE_URL);
 const models = {};
@@ -15,6 +19,10 @@ const initDatabase = async () => {
 
     models.User = User(sequelize);
     models.Session = Session(sequelize);
+    models.Media = Media(sequelize);
+    models.Container = Container(sequelize);
+    models.Facility = Facility(sequelize);
+    models.Base = Base(sequelize);
 };
 
 const closeDatabase = async () => {
