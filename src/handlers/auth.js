@@ -1,3 +1,4 @@
+const authService = require('../services/auth');
 
 const login = (req, res) => {
     res.send(500, 'Hello world!');
