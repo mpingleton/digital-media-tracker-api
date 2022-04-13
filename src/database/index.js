@@ -12,6 +12,8 @@ const Facility = require('./models/Facility');
 const Base = require('./models/Base');
 const UserToFacilityAssignment = require('./models/UserToFacilityAssignment');
 const MediaTransfer = require('./models/MediaTransfer');
+const AccountabilityCheck = require('./models/AccountabilityCheck');
+const AccountabilityCheckItem = require('./models/AccountabilityCheckItems');
 
 const sequelize = new Sequelize(process.env.DATABASE_URL);
 const models = {};
@@ -27,6 +29,8 @@ const initDatabase = async () => {
     models.Base = Base(sequelize);
     models.UserToFacilityAssignment = UserToFacilityAssignment(sequelize);
     models.MediaTransfer = MediaTransfer(sequelize);
+    models.AccountabilityCheck = AccountabilityCheck(sequelize);
+    models.AccountabilityCheckItem = AccountabilityCheckItem(sequelize);
 };
 
 const closeDatabase = async () => {
