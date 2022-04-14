@@ -1,0 +1,92 @@
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config();
+}
+
+const jwt = require('jsonwebtoken');
+const { models } = require('../database');
+
+const createSessionForUser = async (user) => {
+    // Create a token.
+    const newToken = jwt.sign({ username: user.username }, process.env.JWT_SESSION_SECRET_KEY);
+
+    // Add it to the database.
+    await models.Session.create({
+        user_id: user.id,
+        access_token: newToken,
+        created: new Date(),
+        invalidated: false,
+    });
+
+    return newToken;
+};
+
+const invalidateSession = async (token) => {
+    await models.Session.update({
+        invalidated: true,
+    }, {
+        where: {
+            access_token: token,
+        },
+    });
+};
+
+const invalidateSessionForUser = async (userId) => {
+    await models.Session.update({
+        invalidated: true,
+    }, {
+        where: {
+            user_id: userId,
+        },
+    });
+};
+
+const verifyToken = async (token) => {
+    // Verify the JWT token.
+    var decodedObject = undefined;
+    jwt.verify(token, process.env.JWT_SESSION_SECRET_KEY, (err, decoded) => {
+        if (err) {
+            decodedObject = null;
+        } else {
+            decodedObject = decoded;
+        }
+    });
+    if (decodedObject === null) {
+        return null;
+    }
+
+    // Look up the token in the database; make sure it wasn't invalidated.
+    const databaseSession = await models.Session.findOne({
+        where: {
+            access_token: token,
+        },
+    });
+    if (databaseSession === null) {
+        return null;
+    } else if (databaseSession.invalidated === true) {
+        return null;
+    }
+
+    // Look up the decoded username and make sure it's a match with the token's user_id.
+    const databaseUser = await models.User.findOne({
+        where: {
+            username: decodedObject.username,
+        },
+    });
+    if (databaseUser === null) {
+        return null;
+    } else if (databaseUser.id === databaseSession.user_id) {
+        return {
+            userId: databaseUser.id,
+            username: databaseUser.username,
+        };
+    }
+
+    return null;
+};
+
+module.exports = {
+    createSessionForUser,
+    invalidateSession,
+    invalidateSessionForUser,
+    verifyToken,
+};
