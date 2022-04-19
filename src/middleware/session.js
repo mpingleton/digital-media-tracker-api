@@ -39,14 +39,28 @@ const verifySessionAndRole = (allowedRoles) => async (req, res, nxt) => {
     }
 
     // Verify the user's role.
-    for (let allowedRole of allowedRoles) {
-        if (user.role === allowedRole) {
+    if (allowedRoles === undefined) {
+        req.user = user;
+        nxt();
+    } else if (typeof allowedRoles === 'string') {
+        if (user.role === allowedRoles) {
             req.user = user;
             nxt();
-            return;
+        } else {
+            res.send(403);
         }
+    } else if (Array.isArray(allowedRoles)) {
+        for (let allowedRole of allowedRoles) {
+            if (user.role === allowedRole) {
+                req.user = user;
+                nxt();
+                return;
+            }
+        }
+        res.send(403);
+    } else {
+        res.send(500);
     }
-    res.send(401);
 };
 
 module.exports = {
