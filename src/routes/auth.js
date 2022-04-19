@@ -8,6 +8,6 @@ const validator = require('../middleware/validator');
 const router = express.Router();
 
 router.post('/login', validator(authValidator.login), authHandlers.login);
-router.post('/logout', sessionMiddleware.verifySessionAndRole(["USER", "ADMIN"]), authHandlers.logout);
+router.post('/logout', sessionMiddleware.verifySessionAndRole(), authHandlers.logout);
 
 module.exports = router;
