@@ -23,7 +23,7 @@ const login = async (req, res) => {
 };
 
 const logout = async (req, res) => {
-    await sessionService.invalidateSessionForUser(req.user.userId);
+    await sessionService.invalidateSessionForUser(req.user.id);
     res.send(200);
 };
 

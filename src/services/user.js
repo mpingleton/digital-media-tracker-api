@@ -6,6 +6,9 @@ const getUserById = async (userId) => {
             id: userId,
         },
     });
+    if (data === null) {
+        throw 1;
+    }
 
     const user = {
         id: data.id,

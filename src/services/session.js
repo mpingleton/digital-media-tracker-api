@@ -40,8 +40,7 @@ const invalidateSessionForUser = async (userId) => {
     });
 };
 
-const verifyToken = async (token) => {
-    // Verify the JWT token.
+const decodeToken = async (token) => {
     var decodedObject = undefined;
     jwt.verify(token, process.env.JWT_SESSION_SECRET_KEY, (err, decoded) => {
         if (err) {
@@ -50,43 +49,35 @@ const verifyToken = async (token) => {
             decodedObject = decoded;
         }
     });
-    if (decodedObject === null) {
-        return null;
-    }
 
-    // Look up the token in the database; make sure it wasn't invalidated.
-    const databaseSession = await models.Session.findOne({
+    return decodedObject;
+};
+
+const getSessionFromToken = async (token) => {
+    const data = await models.Session.findOne({
         where: {
             access_token: token,
         },
     });
-    if (databaseSession === null) {
-        return null;
-    } else if (databaseSession.invalidated === true) {
-        return null;
+    if (data === null) {
+        throw 1;
     }
 
-    // Look up the decoded username and make sure it's a match with the token's user_id.
-    const databaseUser = await models.User.findOne({
-        where: {
-            username: decodedObject.username,
-        },
-    });
-    if (databaseUser === null) {
-        return null;
-    } else if (databaseUser.id === databaseSession.user_id) {
-        return {
-            userId: databaseUser.id,
-            username: databaseUser.username,
-        };
-    }
+    const session = {
+        id: data.id,
+        userId: data.user_id,
+        accessToken: data.access_token,
+        created: data.created,
+        invalidated: data.invalidated,
+    };
 
-    return null;
+    return session;
 };
 
 module.exports = {
     createSessionForUser,
     invalidateSession,
     invalidateSessionForUser,
-    verifyToken,
+    decodeToken,
+    getSessionFromToken,
 };
