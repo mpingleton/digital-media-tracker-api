@@ -14,7 +14,7 @@ Provide a small description about what this route does.
 2. middleware/validator(validators/example.validationSchema)
 3. handlers/example.handlerFunction
 
-## Expected Input
+## Request
 
 Note: Inputs listed here pertain to this route's handler function only; additional inputs may be necessary for the middleware functions.
 

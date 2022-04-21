@@ -11,7 +11,7 @@ Given a set of credentials from the client, will create a session and access tok
 1. middleware/validator(validators/auth.login)
 2. handlers/auth.login
 
-## Expected Input
+## Request
 
 Note: Inputs listed here pertain to this route's handler function only; additional inputs may be necessary for the middleware functions.
 

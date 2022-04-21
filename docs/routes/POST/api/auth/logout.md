@@ -11,7 +11,7 @@ Terminates the current session for the authenticated user.
 1. middleware/session.verifySessionAndRole()
 2. handlers/auth.logout
 
-## Expected Input
+## Request
 
 Note: Inputs listed here pertain to this route's handler function only; additional inputs may be necessary for the middleware functions.
 
