@@ -51,7 +51,21 @@ const getUserByUsername = async (username) => {
     return user;
 };
 
+const createUser = async (data) => {
+    await models.User.create({
+        username: data.username,
+        passphrase: data.passphrase,
+        role: data.role,
+        rank: data.rank,
+        first_name: data.firstName,
+        last_name: data.lastName,
+        email: data.email,
+        phone: data.phone,
+    });
+};
+
 module.exports = {
     getUserById,
     getUserByUsername,
+    createUser,
 };

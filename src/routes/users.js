@@ -9,5 +9,6 @@ const router = express.Router();
 
 router.get('/self', sessionMiddleware.verifySessionAndRole(), usersHandlers.getSelf);
 router.get('/id/:userId', sessionMiddleware.verifySessionAndRole(['USER', 'ADMIN']), validator(usersValidator.getUserById), usersHandlers.getUserById);
+router.put('/', sessionMiddleware.verifySessionAndRole("ADMIN"), validator(usersValidator.createUser), usersHandlers.createUser);
 
 module.exports = router;

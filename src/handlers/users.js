@@ -26,7 +26,13 @@ const getUserById = async (req, res) => {
     });
 };
 
+const createUser = async (req, res) => {
+    await userService.createUser(req.body);
+    res.send(201);
+};
+
 module.exports = {
     getSelf,
     getUserById,
+    createUser,
 };
