@@ -1,4 +1,4 @@
-# GET /api/users/id/:userId
+# GET /api/user/id/:userId
 
 Get profile information about a specific user, given the user id.
 
@@ -9,8 +9,8 @@ Get profile information about a specific user, given the user id.
 ## Middleware
 
 1. middleware/session.verifySessionAndRole(["ADMIN", "USER"])
-2. middleware/validator(validators/users.getUserById)
-3. handlers/users.getUserById
+2. middleware/validator(validators/user.getUserById)
+3. handlers/user.getUserById
 
 ## Request
 

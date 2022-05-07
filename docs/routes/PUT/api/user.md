@@ -1,4 +1,4 @@
-# PUT /api/users
+# PUT /api/user
 
 Create a single new user.
 
@@ -9,8 +9,8 @@ Create a single new user.
 ## Middleware
 
 1. middleware/session.verifySessionAndRole("ADMIN")
-2. middleware/validator(validators/users.createUser)
-3. handlers/users.createUser
+2. middleware/validator(validators/user.createUser)
+3. handlers/user.createUser
 
 ## Request
 

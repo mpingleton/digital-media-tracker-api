@@ -9,7 +9,7 @@ Get profile information about the currently authenticated user.
 ## Middleware
 
 1. middleware/session.verifySessionAndRole()
-2. handlers/users.getSelf
+2. handlers/user.getSelf
 
 ## Request
 
