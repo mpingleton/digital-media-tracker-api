@@ -23,6 +23,29 @@ const getMediaById = async (mediaId) => {
     return media;
 };
 
+const getMediaInContainer = async (containerId) => {
+    const data = await models.Media.findAll({
+        where: {
+            container_id: containerId,
+        },
+    });
+    if (data === null) {
+        throw 1;
+    }
+
+    const media = data.map((mediaData) => ({
+        id: mediaData.id,
+        containerId: mediaData.container_id,
+        controlNumber: mediaData.control_number,
+        title: mediaData.title,
+        mediaType: mediaData.media_type,
+        classification: mediaData.classification,
+        status: mediaData.status,
+    }));
+
+    return media;
+};
+
 const createMedia = async (data) => {
     await models.Media.create({
         container_id: data.containerId,
@@ -36,5 +59,6 @@ const createMedia = async (data) => {
 
 module.exports = {
     getMediaById,
+    getMediaInContainer,
     createMedia,
 };

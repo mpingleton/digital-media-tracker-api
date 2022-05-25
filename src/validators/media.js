@@ -8,6 +8,22 @@ const getMediaById = Joi.object({
     body: Joi.object({}),
 });
 
+const getMediaInContainer = Joi.object({
+    params: Joi.object({
+        containerId: Joi.number().integer().required(),
+    }),
+    query: Joi.object({}),
+    body: Joi.object({}),
+});
+
+const getMediaInFacility = Joi.object({
+    params: Joi.object({
+        facilityId: Joi.number().integer().required(),
+    }),
+    query: Joi.object({}),
+    body: Joi.object({}),
+});
+
 const createMedia = Joi.object({
     params: Joi.object({}),
     query: Joi.object({}),
@@ -23,5 +39,7 @@ const createMedia = Joi.object({
 
 module.exports = {
     getMediaById,
+    getMediaInContainer,
+    getMediaInFacility,
     createMedia,
 };
