@@ -53,7 +53,7 @@ The `media` key will be an array of objects containing the following keys:
 
 |Key|Type|Value|
 |-|-|-|
-|mediaId|Integer|Database ID of the media.|
+|id|Integer|Database ID of the media.|
 |containerId|Integer|ID of the container in which this media is stored.|
 |controlNumber|String|Control number used to identify the media in the container.|
 |title|String|Title of the media.|
