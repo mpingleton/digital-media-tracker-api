@@ -38,7 +38,15 @@ const getContainersInFacility = async (facilityId) => {
     return containers;
 };
 
+const createContainer = async (data) => {
+    await models.Container.create({
+        facility_id: data.facilityId,
+        description: data.description,
+    });
+};
+
 module.exports = {
     getContainerById,
     getContainersInFacility,
+    createContainer,
 };
