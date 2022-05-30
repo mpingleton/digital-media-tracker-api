@@ -36,7 +36,7 @@
 | |title|String|
 | |media_type|String|
 | |classification|String|
-| |status|String|Possible values: BLANK, ACTIVE, DISPOSED, RELEASED.|
+| |lifecycle_state|String|Possible values: BLANK, ACTIVE, DISPOSED, RELEASED.|
 
 ### containers
 

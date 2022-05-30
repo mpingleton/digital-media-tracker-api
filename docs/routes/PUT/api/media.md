@@ -41,7 +41,7 @@ Should be a JSON object containing the following keys:
 |title|String|Title of the media.|No|
 |mediaType|String|Type of storage (i.e., CD, DVD, HDD, SSD, etc.).|No|
 |classification|String|Security classification of media.|No|
-|status|String|Lifecycle status (i.e., BLANK, ACTIVE, RELEASED, DESTROYED.).|No|
+|lifecycleState|String|Lifecycle status (i.e., BLANK, ACTIVE, RELEASED, DESTROYED.).|No|
 
 ## Response
 

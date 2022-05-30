@@ -52,4 +52,4 @@ A `200 OK` is sent when the requested media is found.  The response body will co
 |title|String|Title of the media.|
 |mediaType|String|Type of storage (i.e., CD, DVD, HDD, SSD, etc.).|
 |classification|String|Security classification of media.|
-|status|String|Lifecycle status (i.e., BLANK, ACTIVE, RELEASED, DESTROYED.).|
+|lifecycleState|String|Lifecycle status (i.e., BLANK, ACTIVE, RELEASED, DESTROYED.).|

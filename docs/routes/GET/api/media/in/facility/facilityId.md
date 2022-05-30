@@ -59,7 +59,7 @@ The `media` key will be an array of objects containing the following keys:
 |title|String|Title of the media.|
 |mediaType|String|Type of storage (i.e., CD, DVD, HDD, SSD, etc.).|
 |classification|String|Security classification of media.|
-|status|String|Lifecycle status (i.e., BLANK, ACTIVE, RELEASED, DESTROYED.).|
+|lifecycleState|String|Lifecycle status (i.e., BLANK, ACTIVE, RELEASED, DESTROYED.).|
 
 ### 404 Not Found
 

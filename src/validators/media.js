@@ -33,7 +33,7 @@ const createMedia = Joi.object({
         title: Joi.string().required(),
         mediaType: Joi.string().required(),
         classification: Joi.string().required(),
-        status: Joi.string().required(),
+        lifecycleState: Joi.string().required(),
     }),
 });
 

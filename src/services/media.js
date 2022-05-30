@@ -17,7 +17,7 @@ const getMediaById = async (mediaId) => {
         title: data.title,
         mediaType: data.media_type,
         classification: data.classification,
-        status: data.status,
+        lifecycleState: data.lifecycle_state,
     };
 
     return media;
@@ -40,7 +40,7 @@ const getMediaInContainer = async (containerId) => {
         title: mediaData.title,
         mediaType: mediaData.media_type,
         classification: mediaData.classification,
-        status: mediaData.status,
+        lifecycleState: mediaData.lifecycle_state,
     }));
 
     return media;
@@ -53,7 +53,7 @@ const createMedia = async (data) => {
         title: data.title,
         media_type: data.mediaType,
         classification: data.classification,
-        status: data.status,
+        lifecycle_state: data.lifecycleState,
     });
 };
 

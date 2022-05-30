@@ -31,7 +31,7 @@ module.exports = (sequelize) => {
             type: DataTypes.STRING,
             allowNull: true
         },
-        status: {
+        lifecycle_state: {
             type: DataTypes.STRING,
             allowNull: false
         },
