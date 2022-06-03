@@ -22,6 +22,28 @@ const getFacilityById = async (facilityId) => {
     return facility;
 };
 
+const getFacilitiesInBase = async (baseId) => {
+    const data = await models.Facility.findAll({
+        where: {
+            base_id: baseId,
+        },
+    });
+    if (data === null) {
+        throw 1;
+    }
+
+    const facilities = data.map((facility) => ({
+        id: facility.id,
+        baseId: facility.base_id,
+        description: facility.description,
+        buildingAddress: facility.building_address,
+        buildingNumber: facility.building_number,
+        roomNumber: facility.room_number,
+    }));
+
+    return facilities;
+};
+
 const createFacility = async (data) => {
     await models.Facility.create({
         base_id: data.baseId,
@@ -34,5 +56,6 @@ const createFacility = async (data) => {
 
 module.exports = {
     getFacilityById,
+    getFacilitiesInBase,
     createFacility,
 };

@@ -8,6 +8,14 @@ const getFacilityById = Joi.object({
     body: Joi.object({}),
 });
 
+const getFacilitiesInBase = Joi.object({
+    params: Joi.object({
+        baseId: Joi.number().integer().required(),
+    }),
+    query: Joi.object({}),
+    body: Joi.object({}),
+});
+
 const createFacility = Joi.object({
     params: Joi.object({}),
     query: Joi.object({}),
@@ -22,5 +30,6 @@ const createFacility = Joi.object({
 
 module.exports = {
     getFacilityById,
+    getFacilitiesInBase,
     createFacility,
 };
