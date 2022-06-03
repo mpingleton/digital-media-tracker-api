@@ -7,6 +7,6 @@ const validator = require('../middleware/validator');
 
 const router = express.Router();
 
-
+router.get('/id/:baseId', sessionMiddleware.verifySessionAndRole(["ADMIN", "USER"]), validator(baseValidator.getBaseById), baseHandler.getBaseById);
 
 module.exports = router;
