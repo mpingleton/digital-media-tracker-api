@@ -5,6 +5,12 @@ const getBaseById = async (req, res) => {
     res.send(200, base);
 };
 
+const createBase = async (req, res) => {
+    await baseService.createBase(req.body);
+    res.send(201);
+};
+
 module.exports = {
     getBaseById,
+    createBase,
 };

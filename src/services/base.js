@@ -18,6 +18,13 @@ const getBaseById = async (baseId) => {
     return base;
 };
 
+const createBase = async (data) => {
+    await models.Base.create({
+        name: data.name,
+    });
+};
+
 module.exports = {
     getBaseById,
+    createBase,
 };
