@@ -1,4 +1,4 @@
-# GET /api/users/self
+# GET /api/user/self
 
 Get profile information about the currently authenticated user.
 
