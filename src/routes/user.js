@@ -7,6 +7,7 @@ const validator = require('../middleware/validator');
 
 const router = express.Router();
 
+router.get('/', sessionMiddleware.verifySessionAndRole("ADMIN"), userHandler.getUsers);
 router.get('/self', sessionMiddleware.verifySessionAndRole(), userHandler.getSelf);
 router.get('/id/:userId', sessionMiddleware.verifySessionAndRole(['USER', 'ADMIN']), validator(userValidator.getUserById), userHandler.getUserById);
 router.put('/', sessionMiddleware.verifySessionAndRole("ADMIN"), validator(userValidator.createUser), userHandler.createUser);

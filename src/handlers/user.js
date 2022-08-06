@@ -1,5 +1,25 @@
 const userService = require('../services/user');
 
+const getUsers = async (req, res) => {
+    const userData = await userService.getUsers();
+
+    const users = userData.map((user) => ({
+        userId: user.id,
+        username: user.username,
+        role: user.role,
+        rank: user.rank,
+        firstName: user.firstName,
+        lastName: user.lastName,
+    }));
+
+    const data = {
+        numberUsers: users.length,
+        users: users,
+    };
+
+    res.send(200, data);
+};
+
 const getSelf = async (req, res) => {
     const user = await userService.getUserById(req.user.id);
 
@@ -32,6 +52,7 @@ const createUser = async (req, res) => {
 };
 
 module.exports = {
+    getUsers,
     getSelf,
     getUserById,
     createUser,
