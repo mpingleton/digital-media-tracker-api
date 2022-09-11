@@ -43,6 +43,8 @@ const getUserById = async (req, res) => {
         rank: user.rank,
         firstName: user.firstName,
         lastName: user.lastName,
+        email: user.email,
+        phone: user.phone,
     });
 };
 

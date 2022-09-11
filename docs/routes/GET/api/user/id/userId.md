@@ -52,6 +52,8 @@ A `200 OK` is sent when the controller has successfully found the user account. 
 |rank|String|User's rank.|
 |firstName|String|User's first name.|
 |lastName|String|User's last name.|
+|email|String|User's contact email.|
+|phone|String|User's contact phone number.|
 
 ### 404 Not Found
 
