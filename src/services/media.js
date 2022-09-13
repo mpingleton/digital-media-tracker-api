@@ -57,8 +57,17 @@ const createMedia = async (data) => {
     });
 };
 
+const createMediaDocument = async (data) => {
+    await models.MediaDocument.create({
+        media_id: mediaId,
+        checksum_md5: checksum,
+        url: url,
+    });
+};
+
 module.exports = {
     getMediaById,
     getMediaInContainer,
     createMedia,
+    createMediaDocument,
 };
